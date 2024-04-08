@@ -39,7 +39,7 @@ class RegisterController extends Controller
       if($user->role == 'user'){
         return redirect()->route('user.index');
       }else{
-        return redirect()->route('estheticien.index');
+        return redirect()->route('esth.index');
       }
      
     }

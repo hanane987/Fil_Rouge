@@ -41,7 +41,7 @@ class AdminEstheticienController extends Controller
         // Handle image upload
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('estheticiens');
+            $imagePath = $request->file('image')->store('estheticiens','public');
         }
 
         Estheticien::create([
@@ -90,7 +90,7 @@ class AdminEstheticienController extends Controller
         // Handle image upload
         $imagePath = $estheticien->image;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('estheticiens');
+            $imagePath = $request->file('image')->store('public','estheticiens');
         }
 
         $estheticien->update([

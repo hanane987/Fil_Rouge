@@ -1,8 +1,11 @@
+<!-- resources/views/admin/esth/estheticiens/edit.blade.php -->
 
-    <x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <h2>Edit Estheticien</h2>
-<form action="{{ route('admin.estheticiens.update', $estheticien->id) }}" method="POST">
+        <form action="{{ route('admin.esth.estheticiens.update', $estheticien->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -23,10 +26,17 @@
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" class="form-control-file" id="image" name="image" value="{{ $estheticien->image }}">
+                <input type="file" class="form-control-file" id="image" name="image">
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <div class="form-group">
+                <label for="work_name">Work Name</label>
+                <input type="text" class="form-control" id="work_name" name="work_name" value="{{ $estheticien->work_name }}">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" name="price" value="{{ $estheticien->price }}">
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
         </form>
     </div>
-
-</x-app-layout>
+@endsection

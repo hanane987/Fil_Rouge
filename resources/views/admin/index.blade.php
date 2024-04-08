@@ -223,7 +223,7 @@
         </div>
     </div>
 </div> --}}
-kk
+
 @extends('layouts.app')
 
 @section('content')

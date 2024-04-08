@@ -1,8 +1,11 @@
+<!-- resources/views/admin/esth/estheticiens/create.blade.php -->
 
-<x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
-        <h2>Add New Estheticien</h2>
-        <form action="{{ route('admin.estheticiens.store') }}" method="POST" enctype="multipart/form-data">
+        <h2>Create Estheticien</h2>
+        <form action="{{ route('admin.esth.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="first_name">First Name</label>
@@ -24,8 +27,15 @@
                 <label for="image">Image</label>
                 <input type="file" class="form-control-file" id="image" name="image">
             </div>
+            <div class="form-group">
+                <label for="work_name">Work Name</label>
+                <input type="text" class="form-control" id="work_name" name="work_name">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" name="price">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-
-</x-app-layout>
+@endsection

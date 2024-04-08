@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 
@@ -29,19 +30,28 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-           // Create new promotion
-           $promotion = new Promotion();
-           $promotion->name = $request->name;
-           $promotion->discount = $request->discount;
-           $promotion->validityPeriodStart = $request->validityPeriodStart;
-           $promotion->validityPeriodEnd = $request->validityPeriodEnd;
-           // Add other promotion attributes
-   
-           // Save promotion
-           $promotion->save();
-   
-           return redirect()->route('promotions.index')->with('success', 'Promotion added successfully.');
+        // dd($request);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'discount' => 'required|numeric', // Ensure discount is numeric
+            'validityPeriodStart' => 'required|date',
+            'validityPeriodEnd' => 'required|date|after_or_equal:validityPeriodStart',
+        ]);
+     
+    
+        // Create new promotion
+        $promotion = new Promotion();
+        $promotion->name = $request->name;
+        $promotion->discount = $request->discount; // Ensure discount is properly formatted
+        $promotion->validityPeriodStart = $request->validityPeriodStart;
+        $promotion->validityPeriodEnd = $request->validityPeriodEnd;
+    
+        // Save promotion
+        $promotion->save();
+    
+        return redirect()->route('promotions.index')->with('success', 'Promotion added successfully.');
     }
+    
 
     /**
      * Display the specified resource.
@@ -86,5 +96,16 @@ class PromotionController extends Controller
         $promotion->delete();
 
         return redirect()->route('promotions.index')->with('success', 'Promotion deleted successfully.');
+    }
+
+
+
+    public function statistics()
+    {
+        $userCount = User::count();
+        // $estheticianCount = Esthetician::count();
+        $promotionCount = Promotion::count();
+
+        return view('admin.promotions.statistics', compact('userCount', 'promotionCount'));
     }
 }
