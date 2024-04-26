@@ -165,6 +165,12 @@ i span{
 .signup a:hover{
   text-decoration: underline;
 }
+.bg-img{
+  background: url('storage/pictures/szlon.jpg'); /* Update 'background.jpg' with your image file name */
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
    </style>
    <body>
       <div class="bg-img">
@@ -192,14 +198,7 @@ i span{
             <div class="login">
                Or login with
             </div>
-            <div class="links">
-               <div class="facebook">
-                  <i class="fab fa-facebook-f"><span>Facebook</span></i>
-               </div>
-               <div class="instagram">
-                  <i class="fab fa-instagram"><span>Instagram</span></i>
-               </div>
-            </div>
+            
             <div class="signup">
                Don't have account?
                <a href="#">Signup Now</a>

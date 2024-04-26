@@ -1,4 +1,5 @@
-<x-app-layout>
+
+   <x-app-layout>
 <div class="container">
 <style>
 
@@ -171,56 +172,46 @@
 
 
 </style>
- 
+   
+   
     <div class="container">
-        <div class="panel">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col col-sm-6 col-xs-12">
-                        <h4 class="title">All Estheticiens</h4>
-                    </div>
-                    <form action="{{ route('admin.estheticiens.search') }}" method="GET">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by name or specialization" name="query">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
-        </div>
-    </div>
-</form>
+        <div class="card">
+            <div class="card-header">Search Results</div>
 
-                    <div class="col-sm-6 col-xs-12 text-right">
-                        <a href="{{ route('admin.estheticiens.create') }}" class="btn btn-primary mb-3">Add New Estheticien</a>
+            <div class="card-body">
+                <!-- Display Search Query -->
+                @if ($query)
+                    <p>Search results for: <strong>{{ $query }}</strong></p>
+                @endif
+
+                <!-- Display Search Results -->
+                @if ($estheticiens->isEmpty())
+                    <div class="alert alert-warning" role="alert">
+                        No estheticiens found.
                     </div>
-                </div>
-            </div>
-            <div class="panel-body table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Specialization</th>
-                            <th>Availability</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($estheticiens as $estheticien)
-                            <tr>
-                                <td>{{ $estheticien->first_name }}</td>
-                                <td>{{ $estheticien->specialization }}</td>
-                                <td>{{ $estheticien->availability }}</td>
+                @else
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Specialization</th>
+                                    <th>Availability</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($estheticiens as $estheticien)
+                                    <tr>
+                                        <td>{{ $estheticien->first_name }}</td>
+                                        <td>{{ $estheticien->specialization }}</td>
+                                         <td>{{ $estheticien->availability }}</td>
                                 <td>{{ $estheticien->description }}</td>
-                                <td>
-                                    @if($estheticien->image)
-                                        <img src="{{ asset('storage/' . $estheticien->image) }}" alt="Estheticien Image" style="max-width: 100px;">
-                                    @else
-                                        No Image
-                                    @endif
-                                </td>
-                                <td>
-                                    <div class="btn-group">
+                                     
+                                        <td>
+                            
+                                     <div class="btn-group">
                                         <a href="{{ route('admin.estheticiens.edit', $estheticien->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                         <form action="{{ route('admin.estheticiens.destroy', $estheticien->id) }}" method="POST" style="display: inline;">
                                             @csrf
@@ -228,17 +219,17 @@
                                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this estheticien?')">Delete</button>
                                         </form>
                                     </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+
+                                            <!-- Add delete button if needed -->
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endif
             </div>
-            <!-- Pagination and footer -->
         </div>
     </div>
-
-
-
 
 </x-app-layout>

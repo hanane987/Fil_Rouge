@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->enum('role',['admin','user','estheticien']); 
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->dropColumn('service');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
+        Schema::table('reservations', function (Blueprint $table) {
+            //
         });
     }
 };

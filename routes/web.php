@@ -5,8 +5,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PromotionController;
-use App\Http\Controllers\EstheticianController;
+;
+use App\Http\Controllers\ReservationController;
+
 use App\Http\Controllers\EstheticienController;
+
 use App\Http\Controllers\AdminEstheticienController;
 
 /*
@@ -25,19 +28,19 @@ Route::get('/', function () {
 })->name('/');
 Route::middleware('guest')->group(function(){
    
-    Route::post('/register', [RegisterController::class, 'register']);
     Route::get('/login',[LoginController::class,'showLoginForm'])->name('login');
+    Route::post('/registered',[RegisterController::class,'register'])->name('registered');
     Route::post('/logined', [LoginController::class,'login'])->name('logined');
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
 });
 
 
 Route::middleware('auth')->group(function(){
-    Route::get('/logout', [RegisterController::class, 'logout'])->name('logout');
+    Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');
 });
-// Route::get('/estheticien/index', [RegisterController::class, 'index'])->name('estheticien.index');
-Route::get('estheticien.index', function () {
-    return view('esth.index');
-})->name('estheticien.index');
+
+
 
 Route::middleware(['auth','role:user'])->group(function(){
     Route::get('user.index', function () {
@@ -60,48 +63,79 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/estheticiens/{id}/edit', [AdminEstheticienController::class, 'edit'])->name('admin.estheticiens.edit');
     Route::put('/estheticiens/{id}', [AdminEstheticienController::class, 'update'])->name('admin.estheticiens.update');
     Route::delete('/estheticiens/{id}', [AdminEstheticienController::class, 'destroy'])->name('admin.estheticiens.destroy');
-    Route::get('/admin/estheticiens/create', [AdminEstheticienController::class, 'create'])->name('admin.estheticiens.create');
-    Route::put('/admin/estheticiens/{id}', [AdminEstheticienController::class, 'update'])->name('admin.estheticiens.update');
-    Route::get('/admin/estheticiens', [AdminEstheticienController::class, 'index'])->name('admin.estheticiens.index');
-    Route::get('/admin/statistics', [AdminStatisticsController::class, 'statistics'])->name('admin.promotions.statistics');
-
-
-
-    
-
+    Route::post('/estheticienss', [AdminEstheticienController::class, 'search'])->name('admin.estheticiens.search');
     Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
 Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 Route::get('/services/{service}/edit', [ServiceController::class, 'edit'])->name('services.edit');
 Route::put('/services/{service}', [ServiceController::class, 'update'])->name('services.update');
-Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
-
+Route::delete('/services/{service}/destroy', [ServiceController::class, 'destroy'])->name('services.destroy');
 
 Route::get('/admin/esth/create', [EstheticienController::class, 'create'])->name('admin.esth.create');
 
 
-// Route::get('/estheticien', [EstheticienController::class, 'index'])->name('estheticien.index');
-// Route::get('/estheticien/create', [EstheticienController::class, 'create'])->name('estheticien.create');
-// Route::post('/estheticien', [EstheticienController::class, 'store'])->name('estheticien.store');
-// Route::get('/estheticien/{estheticien}', [EstheticienController::class, 'show'])->name('estheticien.show');
-// Route::get('/estheticien/{estheticien}/edit', [EstheticienController::class, 'edit'])->name('estheticien.edit');
-// Route::put('/estheticien/{estheticien}', [EstheticienController::class, 'update'])->name('estheticien.update');
-// Route::delete('/estheticien/{estheticien}', [EstheticienController::class, 'destroy'])->name('estheticien.destroy');
+
     
 
 });
-// Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
-//     Route::get('/estheticiens', [AdminEstheticienController::class, 'index'])->name('admin.estheticiens.index');
-//     Route::get('/estheticiens/create', [AdminEstheticienController::class, 'create'])->name('admin.estheticiens.create');
-//     Route::post('/estheticiens', [AdminEstheticienController::class, 'store'])->name('admin.estheticiens.store');
-//     Route::get('/estheticiens/{id}/edit', [AdminEstheticienController::class, 'edit'])->name('admin.estheticiens.edit');
-//     Route::put('/estheticiens/{id}', [AdminEstheticienController::class, 'update'])->name('admin.estheticiens.update');
-//     Route::delete('/estheticiens/{id}', [AdminEstheticienController::class, 'destroy'])->name('admin.estheticiens.destroy');
-// });
-Route::resource('services', ServiceController::class);
+
+
 Route::resource('promotions', PromotionController::class);
 
 
-Route::resource('admin.esth.estheticiens', EstheticienController::class);
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
+
+
+
+Route::middleware(['auth', 'role:estheticien'])->group(function () {
+
+    Route::post('/estheticien/profile/store', [EstheticienController::class, 'store'])->name('estheticien.store');
+    Route::put('/estheticien/update', [EstheticienController::class, 'update'])->name('estheticien.update');
+
+    // Route for editing the estheticien profile form
+    Route::get('/estheticien/edit', [EstheticienController::class, 'edit'])->name('estheticien.edit');
+    Route::get('/estheticien', [EstheticienController::class, 'index'])->name('estheticien.index');
+    Route::get('/estheticien/create', [EstheticienController::class, 'create'])->name('estheticien.create');
+
+    Route::get('/estheticien/services-and-promotions', [EstheticienController::class, 'servicesAndPromotions'])
+    ->name('estheticien.services_and_promotions');
+    Route::get('/estheticien_peiu', [EstheticienController::class, 'display'])->name('estheticien_peiu');
+    // web.php
+
+Route::get('/singlepage/{service}', [ServiceController::class, 'singlepage'])->name('services.singlepage');
+// web.php
+
+Route::post('/estheticien/assign-service', [EstheticienController::class, 'assignService'])->name('estheticien.assign_service');
+
+Route::post('/reservations/{id}/confirm', [ReservationController::class, 'confirmReservation'])->name('reservations.confirm');
+
+
+
+// jijj
+
+//  user user 
+
+
+
+
+   
+
+});
+Route::middleware(['auth','role:user'])->group(function () {
+   
+    Route::get('/reservations_create/{service}', [ReservationController::class, 'reserver'])->name('reservations.create');
+    Route::get('/reservations/{reservation}', [ReservationController::class, 'show'])->name('reservations.show');
+    Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+    Route::get('/reservations.view_more/{service}', [EstheticienController::class, 'viewMore'])->name('reservations.view_more');
+
+
+   
+});
+
+
+
+// Route to show all reservations
+ // Make sure to replace YourControllerName with the actual name of your controller
+Route::get('/welcome',[EstheticienController::class, 'showEstheticienProfile'])->name('welcome');
+

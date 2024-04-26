@@ -37,16 +37,15 @@ class RegisterController extends Controller
       ]);
       auth()->login($user);
       if($user->role == 'user'){
-        return redirect()->route('user.index');
+        return redirect()->route('reservations.create');
       }else{
-        return redirect()->route('esth.index');
+        return redirect()->route('estheticien.create');
       }
      
     }
 
    
-    
-
+ 
 public function logout(){
     auth()->logout();
     return redirect()->route('login');

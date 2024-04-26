@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Storage;
+use App\Models\User;
+use App\Models\Promotion;
 use App\Models\Estheticien;
 use Illuminate\Http\Request;
 
@@ -16,6 +18,11 @@ class AdminEstheticienController extends Controller
         $estheticiens = Estheticien::all();
         return view('admin.estheticiens.index', compact('estheticiens'));
     }
+
+
+
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -121,4 +128,30 @@ class AdminEstheticienController extends Controller
 
         return redirect()->route('admin.estheticiens.index')->with('success', 'Estheticien deleted successfully.');
     }
+
+    public function statistics()
+    {
+        $userCount = User::count();
+        $estheticienCount = Estheticien::count();
+        $promotionCount=Promotion::count();
+
+        return view('admin.statistic', compact('userCount', 'estheticienCount','promotionCount'));
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $estheticiens = Estheticien::query();
+    
+        if ($query) {
+            $estheticiens->where('first_name', 'LIKE', "%$query%")
+                         ->orWhere('specialization', 'LIKE', "%$query%");
+        }
+    
+        $estheticiens = $estheticiens->get();
+    
+        return view('admin.estheticiens.search', compact('estheticiens', 'query'));
+    }
+    
+
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
@@ -62,7 +61,7 @@
   width: 40px;
   line-height: 45px;
 }
-.field input{
+.field input, .field select {
   height: 100%;
   width: 100%;
   background: transparent;
@@ -168,7 +167,7 @@ i span{
   text-decoration: underline;
 }
 .bg-img{
-  background: url('storage/pictures/black.jpg'); /* Update 'background.jpg' with your image file name */
+  background: url('storage/pictures/szlon.jpg'); /* Update 'background.jpg' with your image file name */
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -187,10 +186,15 @@ i span{
    </style>
 
    <body>
+
+
+
+
+
       <div class="bg-img">
          <div class="content">
             <header>Login Form</header>
-            <form  method="POST"  action="{{route('register')}}">
+            <form  method="POST"  action="{{route('registered')}}">
              @csrf
                <div class="field">
                   <span class="fa fa-user"></span>
@@ -200,18 +204,18 @@ i span{
                   <span class="fa fa-envelope"></span>
                   <input  type="email" name="email" required placeholder="Email or Phone">
                </div>
-               <div class="field space">
+               <div class="field">
                   <span class="fa fa-lock"></span>
                   <input name="password" type="password" class="pass-key" required placeholder="Password">
                   <span class="show">SHOW</span>
                </div>
                  <div class="field">
-                <label for="role">Role:</label>
-                <select id="role" name="role">
-                    <option value="user">User</option>
-                    <option value="estheticien">Estheticien</option>
-                </select>
-            </div>
+                    <span class="fa fa-user"></span>
+                    <select id="role" name="role">
+                        <option value="user">User</option>
+                        <option value="estheticien">Estheticien</option>
+                    </select>
+                 </div>
                <div class="pass">
                   <a href="#">Forgot Password?</a>
                </div>
@@ -222,14 +226,7 @@ i span{
             <div class="login">
                Or login with
             </div>
-            <div class="links">
-               <div class="facebook">
-                  <i class="fab fa-facebook-f"><span>Facebook</span></i>
-               </div>
-               <div class="instagram">
-                  <i class="fab fa-instagram"><span>Instagram</span></i>
-               </div>
-            </div>
+           
             <div class="signup">
                Don't have account?
                <a href="#">Signup Now</a>

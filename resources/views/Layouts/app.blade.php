@@ -8,71 +8,58 @@
     <link rel="stylesheet" href="{{ asset("/css/stylesdash.css") }}">
     <!-- Link to JS file -->
     <script src="{{ asset("/js/dash.js") }}"></script>
-	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Bootstrap JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-</head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-<div class='dashboard'>
-    <div class="dashboard-nav">
-        <header>
-            <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-            <a href="#" class="brand-logo"><i class="fas fa-anchor"></i> <span>BRAND</span></a>
-        </header>
-        <nav class="dashboard-nav-list">
-            <a href="#" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
-            <a href="#" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            <a href="{{ route('admin.index') }}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> All users ban</a>
-            <div class='dashboard-nav-dropdown'>
-                <a href="{{ route('services.index') }}" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-photo-video"></i> Manage Services</a>
-              
-            </div>
-            <div class='dashboard-nav-dropdown'>
-<a href="{{ route('promotions.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Promotions </a>
-{{-- <a href="{{ route('admin.promotions.statistics') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Statistics </a> --}}
-
-              
-            </div>
-            <div class='dashboard-nav-dropdown'>
-                {{-- <a href="{{ route('admin.statistic') }}" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-money-check-alt"></i> Statistics</a> --}}
-                <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">All</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Recent</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Projections</a>
-                </div>
-            </div>
-            <a href="{{ route('admin.estheticiens.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Mnage estheticiens</a>
-            <a href="#" class="dashboard-nav-item"><i class="fas fa-user"></i> Profile</a>
-            <div class="nav-item-divider"></div>
-            <a href="{{ route('logout') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
-			
-
-        </nav>
-    </div>
-    <div class='dashboard-app'>
-        <header class='dashboard-toolbar'>
-            <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-        </header>
-        <div class='dashboard-content'>
-            <div class='container'>
-                <div class='card'>
-                    <div class='card-header'>
-                        <h1>Welcome back Jim</h1>
+    <div class='dashboard'>
+        <div class="dashboard-nav">
+            <header>
+                <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+                <a href="#" class="brand-logo"><i class="fas fa-anchor"></i> <span>BRAND</span></a>
+            </header>
+            <nav class="dashboard-nav-list">
+                <a href="#" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
+                <a href="#" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <!-- Admin specific links -->
+                @if(Auth::user()->role == 'admin')
+                    <a href="{{ route('admin.index') }}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> All users ban</a>
+                    <div class='dashboard-nav-dropdown'>
+                        <a href="{{ route('services.index') }}" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-photo-video"></i> Manage Services</a>
                     </div>
-                    <div class='card-body'>
-                        <p>Your account type is: Administrator</p>
-                    </div>
-                </div>
+                    <a href="{{ route('promotions.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Promotions</a>
+                    <a href="{{ route('admin.estheticiens.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Estheticiens</a>
+                @endif
+                <!-- Estheticien specific links -->
+                @if(Auth::user()->role == 'estheticien')
+                    <a href="{{ route('estheticien.create') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Create Profile</a>
+                     <a href="{{ route('estheticien.services_and_promotions') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> See services</a>
 
-				{{$slot}}
+            
+                @endif
+                <div class="nav-item-divider"></div>
+                <!-- Common links -->
+                <a href="{{ route('logout') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </div>
+        <div class='dashboard-app'>
+            <header class='dashboard-toolbar'>
+                <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+            </header>
+            <div class='dashboard-content'>
+                <div class='container'>
+                   
+                        <div class='card-body'>
+                            <p>Your account type is: {{ Auth::user()->role }}</p>
+                            <!-- You can add more content here -->
+                            {{ $slot }}
+                       
+                </div>
             </div>
         </div>
-     
     </div>
-</div>
 </body>
 </html>
 

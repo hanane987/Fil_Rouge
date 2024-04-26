@@ -41,7 +41,7 @@ class LoginController extends Controller
                     return redirect()->intended('admin.index');
                     break;
                 case 'estheticien':
-                    return redirect()->intended('estheticien.index');
+                    return redirect()->intended('estheticien.show');
                     break;
                 default:
                     return redirect()->intended('dashboard');
