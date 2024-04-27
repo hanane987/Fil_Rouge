@@ -65,7 +65,7 @@
         </div>
         <div class="row m-0">
             <div class="col-lg-4 left-side-product-box pb-3">
-                <img src="http://nicesnippets.com/demo/pd-image1.jpg" class="border p-3">
+                <img src="/storage/{{$service->image}}" class="border p-3">
              
              
             </div>
@@ -98,10 +98,11 @@
                        
                         <div class="col-lg-12 mt-3">
                             <div class="row">
-                               
+                               @if(Auth::user()->role=='user')
                                 <div class="col-lg-6">
                                     <a href="{{ route('reservations.create',$service) }}" class="btn btn-success w-100">Reserve Now</a>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>

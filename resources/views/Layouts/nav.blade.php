@@ -30,23 +30,21 @@
           <li class="nav-item">
             <a class="nav-link" href="#faq">FAQ</a>
           </li>
+          @if(Auth::user()->role=='user')
           <li class="nav-item">
             <a class="nav-link" href="{{route('myreservations')}}">Reservations</a>
           </li>
+          @endif
           <li class="nav-item">
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#team">Team</a>
           </li>
-          @auth
-            <li class="nav-item">
-                <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</button>
-                </form>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('user_profile')}}">My Profile</a>
           </li>
-          @endauth
+        
          
         </ul>
         <ul class="navbar-nav d-flex flex-row">

@@ -10,9 +10,14 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="/storage/{{$coiffeure->image}}" alt="Admin" class="rounded-circle" width="150">
+                  @if($coiffeure->role == 'estheticien')
+                    <img src="/storage/{{$coiffeure->estheticiens->image}}" alt="Admin" class="rounded-circle" width="150">
+                    @else
+                                        <img src="storage/estheticiens/5MIQDF7l4NWMWV98i1dEgeNWUWw3pOSbByXcz9vz.jpg" alt="Admin" class="rounded-circle" width="150">
+
+                    @endif
                     <div class="mt-3 text-center">
-    <h4>{{$coiffeure->first_name}}</h4>
+    <h4>{{$coiffeure->name}}</h4>
     <p class="text-secondary mb-1 w-50 mx-auto">{{$coiffeure->description}}</p>
 </div>
 
@@ -52,7 +57,7 @@
                       <h6 class="mb-0">Full name </h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{$coiffeure->first_name}}
+                      {{$coiffeure->name}}
                     </div>
                   </div>
                   <hr>
@@ -61,35 +66,21 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{$coiffeure->user->email}}
+                      {{$coiffeure->email}}
                     </div>
                   </div>
                   <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Specialization</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                     {{$coiffeure->specialization}}
-                    </div>
+                   
+                   
+                  <hr>
+                  
+                   
                   </div>
                   <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Availability</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    {{$coiffeure->availability}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
-                    </div>
+                   
+                    
                   </div>
                   <hr>
                   <div class="row">
@@ -99,13 +90,13 @@
                   </div>
                 </div>
               </div>
-
+             @if($coiffeure->role=='estheticien')
               <div class="row gutters-sm">
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
                       <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                    @foreach ($coiffeure->est_serv as $serve )
+                    @foreach ($coiffeure->estheticiens->est_serv as $serve )
                          <small><a href="{{ route('service.show', $serve->service->id) }}">{{$serve->service->name}}</a>  </small>
                       <div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
@@ -119,7 +110,30 @@
 
 
             </div>
-          
+          @endif
+          @if($coiffeure->role=='user') 
+          <div class="row gutters-sm">
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                    @foreach ($coiffeure->reservations as $server )
+                         <small><a href="">{{$server->bookingTime}}</a>  </small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    @endforeach
+                     
+                    </div>
+                  </div>
+                </div>
+                
+
+
+            </div>
+
+
+          @endif
           </div>
 
         </div>

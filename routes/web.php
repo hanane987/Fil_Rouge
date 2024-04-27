@@ -143,3 +143,11 @@ Route::get('/welcome',[EstheticienController::class, 'showEstheticienProfile'])-
 Route::get('/service_show/{service}',[ServiceController::class, 'show'])->name('service.show');
 
 Route::get('/profil_esth/{coiffeure}',[EstheticienController::class, 'profil_esth'])->name('profil_esth');
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user_profile',[EstheticienController::class, 'user_profile'])->name('user_profile');
+
+});

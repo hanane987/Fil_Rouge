@@ -16,7 +16,7 @@
   user-select: none;
 }
 .bg-img{
-  background: url('bg.jpg');
+  background: url('/storage/pictures/szlon.jpg');
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -166,11 +166,14 @@ i span{
 .signup a:hover{
   text-decoration: underline;
 }
-.bg-img{
-  background: url('storage/estheticiens/szlon.jpg'); /* Update 'background.jpg' with your image file name */
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+.bg-img {
+    background-image: url('/storage/pictures/szlon.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bg-img:after{

@@ -21,7 +21,7 @@
                 <a href="#" class="brand-logo"><i class="fas fa-anchor"></i> <span>BRAND</span></a>
             </header>
             <nav class="dashboard-nav-list">
-                <a href="#" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
+                <a href="{{route('/')}}" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
                 <a href="#" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 <!-- Admin specific links -->
                 @if(Auth::user()->role == 'admin')

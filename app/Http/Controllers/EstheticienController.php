@@ -274,5 +274,10 @@ public function profil_esth(Estheticien $coiffeure){
 
 return view('estheticien.profil_esth',compact('coiffeure'));
 }
+
+public function user_profile(){
+    $coiffeure=Auth::user() ;
+   return view('user_profile',compact('coiffeure'));
+}
     
 }
