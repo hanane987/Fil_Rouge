@@ -1,15 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\PromotionController;
 ;
-use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\PromotionController;
 
 use App\Http\Controllers\EstheticienController;
 
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\AdminEstheticienController;
 
 /*
@@ -23,9 +24,7 @@ use App\Http\Controllers\AdminEstheticienController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('/');
+Route::get('/', [HomeController::class,'index'])->name('/');
 Route::middleware('guest')->group(function(){
    
     Route::get('/login',[LoginController::class,'showLoginForm'])->name('login');
@@ -138,4 +137,5 @@ Route::middleware(['auth','role:user'])->group(function () {
 // Route to show all reservations
  // Make sure to replace YourControllerName with the actual name of your controller
 Route::get('/welcome',[EstheticienController::class, 'showEstheticienProfile'])->name('welcome');
+Route::get('/service_show/{service}',[ServiceController::class, 'show'])->name('service.show');
 

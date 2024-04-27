@@ -38,20 +38,24 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+      $v=$request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'duration' => 'required|string|max:255',
-            'promotion_id' => 'nullable|exists:promotions,id'
+            'image' => 'required',
         ]);
+       
 
         $service = new Service();
         $service->name = $request->name;
         $service->description = $request->description;
         $service->price = $request->price;
         $service->duration = $request->duration;
-        $service->promotion_id = $request->promotion_id;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('services_img', 'public');
+            $service->image = $imagePath;
+        }
         $service->save();
 
         return redirect()->route('services.index')->with('success', 'Service added successfully.');
@@ -65,7 +69,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        
+        return view('services.show',compact('service'));
     }
 
     /**
@@ -89,19 +94,24 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        $request->validate([
+       $v= $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'duration' => 'required|string|max:255',
-            'promotion_id' => 'nullable|exists:promotions,id'
+            'image'=>'required',
         ]);
-
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('services_img', 'public');
+        }else{
+            $imagePath =  $request->image;
+        }
         $service->name = $request->name;
         $service->description = $request->description;
         $service->price = $request->price;
         $service->duration = $request->duration;
-        $service->promotion_id = $request->promotion_id;
+        $service->image = $imagePath;
+        
         $service->save();
 
         return redirect()->route('services.index')->with('success', 'Service updated successfully.');

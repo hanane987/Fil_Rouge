@@ -16,7 +16,7 @@
 <body>
 @include('Layouts.nav')
 
-
+<div>{{$slot}}</div>
 
 </body>
 </html>

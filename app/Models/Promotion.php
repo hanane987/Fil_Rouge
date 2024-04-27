@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Promotion extends Model
 {
-    protected $fillable = ['name', 'discount', 'validityPeriodStart', 'validityPeriodEnd'];
+    protected $fillable = ['name', 'discount', 'validityPeriodStart', 'validityPeriodEnd','service_id'];
 
     protected $dates = ['validityPeriodStart', 'validityPeriodEnd'];
 

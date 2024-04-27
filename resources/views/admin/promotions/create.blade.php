@@ -27,6 +27,15 @@
                             <label for="validityPeriodEnd">Validity Period End</label>
                             <input type="date" class="form-control" id="validityPeriodEnd" name="validityPeriodEnd" value="{{ isset($promotion) ? $promotion->validityPeriodEnd->format('Y-m-d') : '' }}" required>
                         </div>
+                        <div class="form-group">
+                            <label for="validityPeriodEnd">Validity Period End</label>
+                            <select  class="form-control"  name="service_id">
+                            @foreach($services as $service)
+                            <option value="{{$service->id}}">
+                            {{$service->name}}
+                            </option>
+                            @endforeach
+                            </select>                       </div>
                         <button type="submit" class="btn btn-warning">Submit</button>
                     </form>
                 </div>

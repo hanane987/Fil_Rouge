@@ -2,7 +2,7 @@
    <x-app-layout>
     <div class="container">
         <h2>Create Service</h2>
-        <form action="{{ route('services.store') }}" method="POST">
+        <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>
@@ -21,13 +21,8 @@
                 <input type="text" class="form-control" id="duration" name="duration">
             </div>
             <div class="form-group">
-                <label for="promotion_id">Promotion</label>
-                <select class="form-control" id="promotion_id" name="promotion_id">
-                    <option value="">No Promotion</option>
-                    @foreach($promotions as $promotion)
-                        <option value="{{ $promotion->id }}">{{ $promotion->name }}</option>
-                    @endforeach
-                </select>
+                <label for="promotion_id">Image</label>
+                <input type="file" id="image" name="image">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->decimal('discount', 5, 2);
             $table->date('validityPeriodStart');
             $table->date('validityPeriodEnd');
+            $table->foreignID('service_id')->constrained('services')->nullable();
+
             $table->timestamps();
         });
     }

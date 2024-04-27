@@ -2,7 +2,7 @@
    <x-app-layout>
    <div class="container">
     <h2>Edit Service</h2>
-    <form action="{{ route('services.update', $service->id) }}" method="POST">
+    <form action="{{ route('services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -26,16 +26,12 @@
             <input type="text" class="form-control" id="duration" name="duration" value="{{ $service->duration }}">
         </div>
 
-        <div class="form-group">
-            <label for="promotion_id">Promotion</label>
-            <select class="form-control" id="promotion_id" name="promotion_id">
-                <option value="">No Promotion</option>
-                @foreach($promotions as $promotion)
-                    <option value="{{ $promotion->id }}" {{ $service->promotion_id == $promotion->id ? 'selected' : '' }}>
-                        {{ $promotion->name }}
-                    </option>
-                @endforeach
-            </select>
+     
+           <input hidden name="image" value="{{$service->image}}">
+             <div class="form-group">
+                <label for="promotion_id">Image</label>
+                <input type="file" id="image" name="image">
+          
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>

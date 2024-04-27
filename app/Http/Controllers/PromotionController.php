@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Service;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        return view('admin.promotions.create');
+        $services= Service::all();
+        return view('admin.promotions.create',compact('services'));
     }
 
     /**
@@ -36,6 +38,7 @@ class PromotionController extends Controller
             'discount' => 'required|numeric', // Ensure discount is numeric
             'validityPeriodStart' => 'required|date',
             'validityPeriodEnd' => 'required|date|after_or_equal:validityPeriodStart',
+            'service_id'=> 'required',
         ]);
      
     
@@ -45,7 +48,7 @@ class PromotionController extends Controller
         $promotion->discount = $request->discount; // Ensure discount is properly formatted
         $promotion->validityPeriodStart = $request->validityPeriodStart;
         $promotion->validityPeriodEnd = $request->validityPeriodEnd;
-    
+        $promotion->service_id = $request->service_id;
         // Save promotion
         $promotion->save();
     

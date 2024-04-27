@@ -13,8 +13,8 @@ class estheticien_service extends Model
    protected $fillable=['first_name','user_id','service_id'];
    protected $table='estheticien_services';
 
-   public function estheticien()
+   public function estheticienn()
    {
-       return $this->belongsTo(Estheticien::class);
+       return $this->belongsTo(Estheticien::class,'user_id');
    }
 }

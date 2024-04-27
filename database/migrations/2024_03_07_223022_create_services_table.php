@@ -15,6 +15,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->string('image');
             $table->decimal('price', 8, 2); // Assuming 8 digits in total and 2 digits after the decimal point
             $table->string('duration'); // You might want to change this to a suitable data type for duration
             $table->timestamps();

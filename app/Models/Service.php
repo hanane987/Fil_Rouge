@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model
 {
-    protected $fillable = ['name', 'description', 'price', 'duration'];
+    protected $fillable = ['name', 'description', 'price', 'duration','image'];
     protected $table = 'services';
 
     public function promotion()

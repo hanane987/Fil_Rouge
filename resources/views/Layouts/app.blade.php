@@ -41,7 +41,10 @@
                 @endif
                 <div class="nav-item-divider"></div>
                 <!-- Common links -->
-                <a href="{{ route('logout') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </form>
             </nav>
         </div>
         <div class='dashboard-app'>

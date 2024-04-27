@@ -201,7 +201,7 @@ i span{
             
             <div class="signup">
                Don't have account?
-               <a href="#">Signup Now</a>
+               <a href="{{route('register')}}">Signup Now</a>
             </div>
          </div>
       </div>
