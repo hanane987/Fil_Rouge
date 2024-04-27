@@ -269,6 +269,10 @@ public function showEstheticienProfile()
 }
 
 
+public function profil_esth(Estheticien $coiffeure){
 
+
+return view('estheticien.profil_esth',compact('coiffeure'));
+}
     
 }

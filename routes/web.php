@@ -107,7 +107,8 @@ Route::get('/singlepage/{service}', [ServiceController::class, 'singlepage'])->n
 
 Route::post('/estheticien/assign-service', [EstheticienController::class, 'assignService'])->name('estheticien.assign_service');
 
-Route::post('/reservations/{id}/confirm', [ReservationController::class, 'confirmReservation'])->name('reservations.confirm');
+Route::get('/reservations_confirm', [ReservationController::class, 'confirmReservation'])->name('reservations.confirm');
+Route::put('/confirm_reserv/{reservation}', [ReservationController::class, 'confirm_reserv'])->name('confirm_reserv');
 
 
 
@@ -128,6 +129,8 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
     Route::get('/reservations.view_more/{service}', [EstheticienController::class, 'viewMore'])->name('reservations.view_more');
 
+    Route::get('/myreservations', [ReservationController::class, 'myreservations'])->name('myreservations');
+    Route::delete('/cancel/{booking}', [ReservationController::class, 'cancel'])->name('cancel');
 
    
 });
@@ -139,3 +142,4 @@ Route::middleware(['auth','role:user'])->group(function () {
 Route::get('/welcome',[EstheticienController::class, 'showEstheticienProfile'])->name('welcome');
 Route::get('/service_show/{service}',[ServiceController::class, 'show'])->name('service.show');
 
+Route::get('/profil_esth/{coiffeure}',[EstheticienController::class, 'profil_esth'])->name('profil_esth');

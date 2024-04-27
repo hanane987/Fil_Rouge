@@ -29,13 +29,13 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function estheticiens()
+    public function estheticiene()
     {
-        return $this->belongsToMany(Estheticien::class,'estheticien_id');
+        return $this->belongsTo(Estheticien::class,'estheticien_id');
     }
 
     public function services()
     {
-        return $this->belongsToMany(Service::class,'service_id');
+        return $this->belongsTo(Service::class,'service_id');
     }
 }

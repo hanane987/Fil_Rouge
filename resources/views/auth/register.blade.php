@@ -167,7 +167,7 @@ i span{
   text-decoration: underline;
 }
 .bg-img{
-  background: url('storage/pictures/szlon.jpg'); /* Update 'background.jpg' with your image file name */
+  background: url('storage/estheticiens/szlon.jpg'); /* Update 'background.jpg' with your image file name */
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -228,8 +228,8 @@ i span{
             </div>
            
             <div class="signup">
-               Don't have account?
-               <a href="#">Signup Now</a>
+              Already have account?
+               <a href="{{('login')}}">Login</a>
             </div>
          </div>
       </div>

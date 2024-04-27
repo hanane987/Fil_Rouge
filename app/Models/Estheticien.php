@@ -21,4 +21,7 @@ class Estheticien extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function est_serv(){
+        return $this->hasMany(estheticien_service::class,'user_id');
+    }
 }

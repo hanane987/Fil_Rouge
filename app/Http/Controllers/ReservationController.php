@@ -40,27 +40,27 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'estheticien_id' => 'required|array|min:1',
-            'estheticien_id.*' => 'exists:estheticiens,id', // Ensure each estheticien ID exists in the database
-            'service_id' => 'required|array|min:1',
-            'service_id.*' => 'exists:services,id', // Ensure each service ID exists in the database
+            'estheticien_id' => 'required',
+            'service_id' => 'required',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'email' => 'required|email',
+            'phone'=>'required',
+            'datetime'=>'required',
            
             // Add more validation rules as needed
         ]);
     
         // Create reservation
         $reservation = Reservation::create([
-            'bookingTime' => now(), // Set booking time to current time
-            'first_name' => $request->input('first_name'),
-            'last_name' => $request->input('last_name'),
-            'email' => $request->input('email'),
-            'phone'=> '5567890',
+            'bookingTime' => $request->datetime, // Set booking time to current time
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone'=> $request->phone,
             'user_id' => Auth::id(),
-            'estheticien_id' => implode(',', $request->estheticien_id), // Convert array to string
-            'service_id' => implode(',', $request->service_id), // Convert array to string
+            'estheticien_id' => $request->estheticien_id ,// Convert array to string
+            'service_id' => $request->service_id , // Convert array to string
         ]);
     
         return redirect()->route('/')->with('success', 'Reservation created successfully.');
@@ -78,13 +78,33 @@ class ReservationController extends Controller
         return view('reservations.show', compact('reservation'));
     }
 
-    // Add other methods as needed (e.g., edit, update, destroy)
-    public function confirmReservation($id)
-{
-    $reservation = Reservation::findOrFail($id);
-    $reservation->bookingConfirmation = true;
-    $reservation->save();
 
-    return redirect()->route('reservations.index')->with('success', 'Reservation confirmed successfully.');
+public function confirmReservation(){
+    $reservations=Reservation::whereHas('estheticiene',function($query){
+        $query->where('user_id',Auth::id());
+    })->where('bookingConfirmation',false)->get();
+
+
+
+    return view('reservations.confirm',compact('reservations'));
+}
+
+public function confirm_reserv(Reservation $reservation){
+    $reservation->bookingConfirmation=true;
+    $reservation->save();
+    return back()->with('success','Reservation confirmed');
+
+}
+
+public function myreservations(){
+
+    $reservation=Reservation::where('user_id',Auth::id())->get();
+    return view ('reservations.myreservations',compact('reservation'));
+}
+public function cancel(Reservation $booking){
+   
+    $booking->delete();
+    return back()->with('success','Reservation canceled');
+
 }
 }

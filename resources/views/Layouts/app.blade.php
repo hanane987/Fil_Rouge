@@ -36,6 +36,7 @@
                 @if(Auth::user()->role == 'estheticien')
                     <a href="{{ route('estheticien.create') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Create Profile</a>
                      <a href="{{ route('estheticien.services_and_promotions') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> See services</a>
+  <a href="{{ route('reservations.confirm') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Confirmation </a>
 
             
                 @endif

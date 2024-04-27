@@ -1,19 +1,7 @@
 
 
+<x-home-layout>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slider</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> --}}
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   
   <style>
     .carousel-item {
@@ -322,8 +310,7 @@ footer a,footer a:hover{
         }
 
   </style>
-</head>
-<body>
+
 
 
 
@@ -337,48 +324,7 @@ footer a,footer a:hover{
         aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Offer</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Reference</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Contact</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav d-flex flex-row">
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+     
     </div>
   </nav>
   <!-- Navbar -->
@@ -1197,5 +1143,5 @@ footer a,footer a:hover{
   });
 </script>
 
-</body>
-</html>
+
+</x-home-layout>

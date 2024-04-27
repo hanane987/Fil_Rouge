@@ -52,7 +52,12 @@
         height: auto;
     }
 }
+
+
+
+
 </style>
+
 <div class="container">
     <div class="col-lg-8 border p-3 main-section bg-white">
         <div class="row hedding m-0 pl-3 pt-0 pb-3">
@@ -86,7 +91,7 @@
                             <div>
                             <img width="50" hight="50px" class="rounded-circle" src="/storage/{{$coiffeur->estheticienn->image}}">
                             </div>
-                                <a href="">{{$coiffeur->estheticienn->first_name}}</a>
+                                <a href="{{route('profil_esth',['coiffeure'=>$coiffeur->estheticienn])}}">{{$coiffeur->estheticienn->first_name}}</a>
                             @endforeach
                             </p>
                         </div>
@@ -95,7 +100,7 @@
                             <div class="row">
                                
                                 <div class="col-lg-6">
-                                    <a href="#" class="btn btn-success w-100">Reserve Now</a>
+                                    <a href="{{ route('reservations.create',$service) }}" class="btn btn-success w-100">Reserve Now</a>
                                 </div>
                             </div>
                         </div>
@@ -108,6 +113,7 @@
         </div>
     </div>
 </div>
+
 </x-slot>
 
 
