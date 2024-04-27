@@ -46,7 +46,7 @@ class ReservationController extends Controller
             'last_name' => 'required|string',
             'email' => 'required|email',
             'phone'=>'required',
-            'datetime'=>'required',
+            'datetime' => 'required|after:now',
            
             // Add more validation rules as needed
         ]);

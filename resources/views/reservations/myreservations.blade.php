@@ -54,6 +54,37 @@
   height: 100px;
 }
 
+ @media print {
+    .card-custom {
+      box-shadow: none !important; /* Remove box-shadow for printing */
+      border: 1px solid #ccc; /* Add a border for the card */
+      page-break-inside: avoid; /* Avoid breaking the card across pages */
+    }
+    .card-custom-img::after {
+      display: none; /* Hide the background shape for printing */
+    }
+    .card-custom-avatar img {
+      display: none; /* Hide avatar image for printing */
+    }
+    .card-body {
+      overflow: visible !important; /* Allow overflowing content for printing */
+    }
+    .card-footer {
+      display: none; /* Hide the card footer for printing */
+    }
+    .card-title {
+      font-size: 18px; /* Increase font size for card title */
+      font-weight: bold; /* Make card title bold */
+      margin-bottom: 10px; /* Add margin below card title */
+    }
+    .card-text {
+      font-size: 14px; /* Adjust font size for card text */
+      line-height: 1.5; /* Adjust line height for better readability */
+      margin-bottom: 20px; /* Add margin below card text */
+    }
+    /* Adjust other styles as needed */
+  }
+
 </style>
 
 <body>
@@ -65,9 +96,9 @@
         <!-- Copy the content below until next comment -->
         <div class="card card-custom bg-white border-white border-0">
           <div class="card-custom-img" style="background-image: url('/storage/{{$booking->services->image}}');"></div>
-          <div class="card-custom-avatar">
+          {{-- <div class="card-custom-avatar">
             <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
-          </div>
+          </div> --}}
           <div class="card-body" style="overflow-y: auto">
             <h4 class="card-title">Card title</h4>
             <p class="card-text">Card has minimum height set but will expand if more space is needed for card body content. You can use Bootstrap <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>

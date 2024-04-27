@@ -313,84 +313,8 @@ footer a,footer a:hover{
 
 
 
-
-<header>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#!"><span style="color: #5e9693;">Psycho</span><span style="color: #fff;">logist</span></a>
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-     
-    </div>
-  </nav>
-  <!-- Navbar -->
-</header>
-
-
-
-
-<header>
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
-        <div class="carousel-caption">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
-        <div class="carousel-caption">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
-        <div class="carousel-caption">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
-        <div class="carousel-caption">
-          <h5>Fourth slide label</h5>
-          <p>Some representative placeholder content for the fourth slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
-        <div class="carousel-caption">
-          <h5>Fifth slide label</h5>
-          <p>Some representative placeholder content for the fifth slide.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</header>
-
-
-
-
-
 <!-- ABOUT US  -->
-<section class="py-5">
+<section class="py-5" id="about">
 	<div class="container">
 		<div class="row gx-4 align-items-center justify-content-between">
 			<div class="col-md-5 order-2 order-md-1">
@@ -422,7 +346,7 @@ footer a,footer a:hover{
 </section>
 
 {{-- FAQ --}}
-<section class="py-5">
+<section class="py-5" id="faq">
 	<div class="container">
 		<div class="row justify-content-center text-center mb-3">
 			<div class="col-lg-8 col-xl-7">
@@ -495,7 +419,7 @@ footer a,footer a:hover{
 
 
 {{-- cards --}}
-<section class="wrapper">
+<section class="wrapper" id="cards">
   <div class="container">
     <div class="row">
       <div class="col text-center mb-5">
@@ -634,7 +558,7 @@ footer a,footer a:hover{
 </section>
 
 {{-- TEAM --}}
-<section class="py-5">
+<section class="py-5" id="team">
 	<div class="container">
 		<div class="row justify-content-center text-center mb-2 mb-lg-4">
 			<div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
@@ -644,48 +568,18 @@ footer a,footer a:hover{
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6 col-lg-3">
-				<div class="card text-center border-0 mb-3">
-					<div class="card-body p-3">
-						<div class="mb-4 mx-lg-3 mx-xxl-5"><img class="img-fluid rounded-circle" src="https://freefrontend.dev/assets/square.png"></div>
-						<h5 class="fw-bold">John Doe</h5>
-						<div class="text-muted">
-							Programmer
-						</div>
-						<div class="d-flex justify-content-center mt-4">
-							<a class="btn btn-sm me-2" href=""><svg class="bi bi-facebook" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-							<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path></svg></a> <a class="btn btn-sm me-2" href=""><svg class="bi bi-twitter" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path></svg></a> <a class="btn btn-sm" href=""><svg class="bi bi-linkedin" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-							<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"></path></svg></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-3">
-				<div class="card text-center border-0 mb-3">
-					<div class="card-body p-3">
-						<div class="mb-4 mx-lg-3 mx-xxl-5"><img class="img-fluid rounded-circle" src="https://freefrontend.dev/assets/square.png"></div>
-						<h5 class="fw-bold">John Doe</h5>
-						<div class="text-muted">
-							Graphic Designer
-						</div>
-						<div class="d-flex justify-content-center mt-4">
-							<a class="btn btn-sm me-2" href=""><svg class="bi bi-facebook" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-							<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path></svg></a> <a class="btn btn-sm me-2" href=""><svg class="bi bi-twitter" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path></svg></a> <a class="btn btn-sm" href=""><svg class="bi bi-linkedin" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-							<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"></path></svg></a>
-						</div>
-					</div>
-				</div>
-			</div>
 		
+		
+		@foreach ($estheticien as $team )
+        
+   
 			<div class="col-md-6 col-lg-3">
 				<div class="card text-center border-0 mb-3">
 					<div class="card-body p-3">
-						<div class="mb-4 mx-lg-3 mx-xxl-5"><img class="img-fluid rounded-circle" src="https://freefrontend.dev/assets/square.png"></div>
-						<h5 class="fw-bold">John Doe</h5>
+						<div class="mb-4 mx-lg-3 mx-xxl-5"><img class="img-fluid rounded-circle" src="/storage/{{$team->image}}"></div>
+						<h5 class="fw-bold">{{$team->first_name}}</h5>
 						<div class="text-muted">
-							Founder & CEO
+							{{$team->description}}
 						</div>
 						<div class="d-flex justify-content-center mt-4">
 							<a class="btn btn-sm me-2" href=""><svg class="bi bi-facebook" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
@@ -694,17 +588,21 @@ footer a,footer a:hover{
 							<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"></path></svg></a>
 						</div>
 					</div>
+                      <a href="{{ route('profil_esth', $team->id) }}" class="btn btn-primary mt-3">View Profile</a> <!-- This is the View Profile button -->
+
 				</div>
 			</div>
 		</div>
+     @endforeach
 	</div>
+  
 </section>
 {{-- portfolio --}}
 
 
 
 <section>
-  <div class="container gal-container">
+  <div class="container gal-container" id="gallery">
     <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
       <div class="box">
         <a href="#" data-toggle="modal" data-target="#1">
@@ -1030,103 +928,7 @@ footer a,footer a:hover{
 
 
 {{-- footer --}}
-<footer class="py-4">
-    <div class="container">
-        <div class="row py-4">
-            <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-                <p class="small mb-1">Mountain View</p>
-                <p class="small mb-1">California, United States</p>
-                <p class="small mb-1">Tel: +1 123-456-7890</p>
-                <p class="small mb-0"><a class="text-dark text-decoration-none" href="">hello@yourdomain.com</a></p>
-            </div>
-            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
-                <h4>Quick Links</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">Home</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">About</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">Shop</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
-                <h4>Useful Info</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">How it Works</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">FAQ</a>
-                    </li>
-                    <li class="mb-0">
-                        <a class="text-dark text-decoration-none" href="">Contacts</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
-                <h4>My Account</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">Get Help</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">My Orders</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="text-dark text-decoration-none" href="">Track Order</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-lg-3">
-                <div class="border-top pt-4 d-lg-none"></div>
-                <h4>Subscribe</h4>
-                <div class="input-group mb-2">
-                    <input class="form-control bg-light" placeholder="Email address" type="text">
-                    <button class="btn btn-primary" type="button">Subscribe</button>
-                </div>
-                <p class="small text-muted mb-0">Sign up for our newsletter to get the latest updates on features and releases.</p>
-            </div>
-        </div>
-        <div class="d-lg-flex align-item-ceneter justify-content-between border-top py-3 py-lg-2 mt-lg-5">
-            <div class="small mb-2 mb-lg-0 text-muted">
-                © 2023 FreeFrontend.dev. All rights reserved.
-            </div>
-            <div class="small">
-                <a class="d-block d-lg-inline text-muted ms-lg-3 mb-2 mb-lg-0" href="">Privacy Policy</a>
-                <a class="d-block d-lg-inline text-muted ms-lg-3 mb-2 mb-lg-0" href="">Terms of Service</a>
-            </div>
-            <div class="d-none d-lg-block ms-auto">
-                <a class="me-2" href=""><svg class="bi bi-pinterest text-primary" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0z"></path>
-                </svg></a>
-                <a class="me-2" href=""><svg class="bi bi-twitter text-primary" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
-                </svg></a>
-                <a class="me-2" href=""><svg class="bi bi-facebook text-primary" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
-                </svg></a>
-            </div>
-            <div class="d-lg-none">
-                <div class="input-group mb-2">
-                    <input class="form-control bg-light" placeholder="Email address" type="text">
-                    <button class="btn btn-primary" type="button">Subscribe</button>
-                </div>
-                <p class="small text-muted mb-0">Sign up for our newsletter to get the latest updates on features and releases.</p>
-            </div>
-            <div class="small">
-                <a class="d-block d-lg-inline text-muted ms-lg-3 mb-2 mb-lg-0" href="">Privacy Policy</a>
-                <a class="d-block d-lg-inline text-muted ms-lg-3 mb-2 mb-lg-0" href="">Terms of Service</a>
-            </div>
-        </div>
-    </div>
-</footer>
+
 
 <!-- Bootstrap JavaScript and jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

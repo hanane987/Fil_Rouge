@@ -59,7 +59,7 @@
 </style>
 
 <div class="container">
-    <div class="col-lg-8 border p-3 main-section bg-white">
+    <div class="col-lg-8 border p-3 bg-white">
         <div class="row hedding m-0 pl-3 pt-0 pb-3">
             Product Detail Design Using Bootstrap 4.0
         </div>
@@ -111,8 +111,7 @@
         
             </div>
         </div>
-    </div>
-</div>
+  
 
 </x-slot>
 
