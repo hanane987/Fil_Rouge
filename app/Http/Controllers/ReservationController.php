@@ -48,19 +48,19 @@ class ReservationController extends Controller
             'phone'=>'required',
             'datetime' => 'required|after:now',
            
-            // Add more validation rules as needed
+           
         ]);
     
-        // Create reservation
+     
         $reservation = Reservation::create([
-            'bookingTime' => $request->datetime, // Set booking time to current time
+            'bookingTime' => $request->datetime,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'phone'=> $request->phone,
             'user_id' => Auth::id(),
-            'estheticien_id' => $request->estheticien_id ,// Convert array to string
-            'service_id' => $request->service_id , // Convert array to string
+            'estheticien_id' => $request->estheticien_id ,
+            'service_id' => $request->service_id ,
         ]);
     
         return redirect()->route('/')->with('success', 'Reservation created successfully.');

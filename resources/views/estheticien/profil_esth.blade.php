@@ -1,11 +1,11 @@
 <x-home-layout>
 <x-slot name="slot">
-<div class="container">
+<div class="container my-5 p-5">
     <div class="main-body">
     
           <!-- Breadcrumb -->
          
-          <div class="row gutters-sm">
+          <div class="row gutters-sm shadow">
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
@@ -13,7 +13,8 @@
                     <img src="/storage/{{$coiffeure->image}}" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3 text-center">
     <h4>{{$coiffeure->first_name}}</h4>
-    <p class="text-secondary mb-1 w-50 mx-auto">{{$coiffeure->description}}</p>
+    <div class="m-4">
+</div>
 </div>
 
                   </div>
@@ -92,11 +93,17 @@
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                 <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">description</h6>
                     </div>
+                    <div class="col-sm-9 text-secondary">
+                      <p class="text-secondary mb-1  mx-auto text-center my-1">{{$coiffeure->description}}</p>
+
+                    </div>
+                    
                   </div>
+                  <hr>
                 </div>
               </div>
 
@@ -124,7 +131,7 @@
 
         </div>
     </div>
-    <style>
+    {{-- <style>
   
 .main-body {
     padding: 15px;
@@ -174,6 +181,6 @@
     box-shadow: none!important;
 }
 
-    </style>
+    </style> --}}
     </x-slot>
     </x-home-layout>

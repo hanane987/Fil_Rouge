@@ -1,5 +1,45 @@
 <x-home-layout>
 <x-slot name="slot">
+
+<body>
+  <div class="container">
+    <div class="row pt-5 m-auto">
+    @foreach($reservation as $booking)
+      <div class="col-md-6 col-lg-4 pb-3">
+
+        <!-- Copy the content below until next comment -->
+        <div class="card card-custom bg-white border-white border-0">
+          <div class="card-custom-img" style="background-image: url('/storage/{{$booking->services->image}}');"></div>
+          {{-- <div class="card-custom-avatar">
+            <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
+          </div> --}}
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title">{{$booking->services->name}}</h4>
+            <h6 class="card-title">  Booking Time :{{$booking->bookingTime}}</h6>
+            <h6 class="card-title">First Name :{{$booking->first_name}}</h6>
+             <h6 class="card-title">Last Name :{{$booking->last_name}}</h6>
+            <p class="card-text">Description :{{$booking->services->description}} <a href="" target="_blank"></a> to align multiple cards nicely in a row.</p>
+          </div>
+          <div class="card-footer" style="background: inherit; border-color: inherit;">
+          @if($booking->bookingTime>=now())
+          <form action="{{route('cancel',$booking)}}" method="post">
+          @csrf
+          @method('delete')
+          <button class="btn btn-primary">Cancel</button>
+          </form>
+            
+@endif
+            @if($booking->bookingConfirmation)
+    <button onclick="window.print();" class="btn btn-outline-primary">PDF</button>
+@endif
+
+          </div>
+        </div>
+        <!-- Copy until here -->
+
+      </div>
+      @endforeach
+  </div>
 <style>
  
   
@@ -84,45 +124,36 @@
     }
     /* Adjust other styles as needed */
   }
+@media print {
+  /* Ajoutez ici vos styles spécifiques pour l'impression */
+  body {
+    font-size: 12pt;
+    color: black;
+    background-color: white;
+  }
+
+  /* Masquez certains éléments qui ne devraient pas apparaître dans l'impression */
+  .no-print {
+    display: none !important;
+  }
+   .card-body {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+     margin-left: 30%;
+  }
+
+  .card-title {
+    color: #343a40;
+    
+  }
+
+  .card-text {
+    color: #6c757d;
+  }
+}
 
 </style>
-
-<body>
-  <div class="container">
-    <div class="row pt-5 m-auto">
-    @foreach($reservation as $booking)
-      <div class="col-md-6 col-lg-4 pb-3">
-
-        <!-- Copy the content below until next comment -->
-        <div class="card card-custom bg-white border-white border-0">
-          <div class="card-custom-img" style="background-image: url('/storage/{{$booking->services->image}}');"></div>
-          {{-- <div class="card-custom-avatar">
-            <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
-          </div> --}}
-          <div class="card-body" style="overflow-y: auto">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Card has minimum height set but will expand if more space is needed for card body content. You can use Bootstrap <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
-          </div>
-          <div class="card-footer" style="background: inherit; border-color: inherit;">
-          @if($booking->bookingTime<=now())
-          <form action="{{route('cancel',$booking)}}" method="post">
-          @csrf
-          @method('delete')
-          <button class="btn btn-primary">Cancel</button>
-          </form>
-            
-@endif
-            @if($booking->bookingConfirmation)
-    <button onclick="window.print();" class="btn btn-outline-primary">PDF</button>
-@endif
-
-          </div>
-        </div>
-        <!-- Copy until here -->
-
-      </div>
-      @endforeach
-  </div>
 
 </x-slot>
 </x-home-layout>

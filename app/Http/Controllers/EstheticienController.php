@@ -20,15 +20,11 @@ class EstheticienController extends Controller
 
      public function index()
      {
-         // Get the authenticated user's estheticien profile
          $estheticien = auth()->user()->estheticien;
      
-         // If the user doesn't have an estheticien profile, redirect to the create page
          if (!$estheticien) {
              return redirect()->route('estheticien.create')->with('error', 'You need to create your estheticien profile first.');
          }
-     
-         // Pass the estheticien profile to the view
          return view('estheticien.index', compact('estheticien'));
      }
      
@@ -42,34 +38,21 @@ class EstheticienController extends Controller
 {
     $user=Auth::user()->estheticiens;
   
-    // Check if the estheticien already has a profile
+    
     if ($user) {
 
-        // If the estheticien already has a profile, redirect to view their profile
         return redirect()->route('estheticien_peiu');
     }else {
         return view('estheticien.create');
     }
-    // If the estheticien does not have a profile, show the create form
    
 }
 
 
 
 
-// public function display($user)
-// {
-   
-//     // Retrieve the authenticated user's estheticien profile
-// // dd($user);
-//     // Check if the estheticien profile exists
-//     if (!$user) {
-//         // Handle the case where the authenticated user does not have an associated estheticien profile
-//         return redirect()->route('estheticien.create')->with('error', 'You do not have a profile.');
-//     }
 
-//     return view('estheticien.show', compact('estheticien'));
-// }
+
 public function display()
 {
    
@@ -103,7 +86,7 @@ public function store(Request $request)
 
     try {
         $user = Auth::user()->estheticiens()->create([
-            'first_name' => $request->first_name, // Provide value for first_name column
+            'first_name' => $request->first_name, 
             'specialization' => $request->specialization,
             'availability' => $request->availability,
             'description' => $request->description,
@@ -112,7 +95,6 @@ public function store(Request $request)
             'price' => $request->price,
         ]);
 
-        // Redirect to the show page of the newly created estheticien
         return redirect()->route('estheticien_peiu')->with('success', 'Profile created successfully.');
     } catch (Exception $e) {
         return redirect()->back()->with('error', 'Failed to create profile. ' . $e->getMessage());
@@ -156,7 +138,6 @@ public function store(Request $request)
             'price' => $request->price,
         ]);
 
-        // Update image if provided
         if ($request->hasFile('image')) {
             $estheticien->update(['image' => $request->file('image')->store('estheticiens', 'public')]);
         }
@@ -178,25 +159,12 @@ public function store(Request $request)
     }
 
 
-    
-//     public function servicesAndPromotions()
-// {
-//     $services = Service::join('estheticien_services', 'service_id', '=', 'services.id')
-//                        ->where('estheticien_services.user_id', '!=', Auth::id())
-//                        ->orWhere('service_id', '!=', 'services.id')
-//                        ->get();
-
-//     $promotions = Promotion::all();
-
-//     return view('estheticien.services_and_promotions', compact('services', 'promotions'));
-// }
-
 public function servicesAndPromotions()
 {
-    // Retrieve all services
+   
     $services = Service::all();
 
-    // Retrieve all promotions
+   
     $promotions = Promotion::all();
 
     return view('estheticien.services_and_promotions', compact('services', 'promotions'));
@@ -206,10 +174,7 @@ public function servicesAndPromotions()
 
     public function singlepage(Service $service)
     {
-        // Retrieve the associated promotion for the service, if any
         $promotion = Promotion::where('service_id', $service->id)->first();
-
-        // Return the view with the service and its promotion data
         return view('service_details', compact('service', 'promotion'));
     }
     public function assignService(Request $request)
@@ -218,17 +183,10 @@ public function servicesAndPromotions()
             'service_id' => 'required|exists:services,id',
         ]);
     
-        // Retrieve the authenticated user
         $user = Auth::user();
     
-        // Check if the user already has an estheticien profile
         $estheticien = $user->estheticiens()->first();
     
-        // If the user does not have an estheticien profile, create one
-       
-    
-        // Now $estheticien should not be null
-        // Proceed with assigning the service to the estheticien
         estheticien_service::create([
             'user_id' => $estheticien->id,
             'service_id' => $request->service_id,
@@ -254,17 +212,11 @@ public function servicesAndPromotions()
 
 public function showEstheticienProfile()
 {
-    // Retrieve the authenticated user's estheticien profile
     $estheticien = Auth::user()->estheticien;
 
-    // Check if estheticien profile exists
     if (!$estheticien) {
-        // Handle the case where the estheticien profile doesn't exist
-        // You can redirect to a create profile page or display a message
         return redirect()->route('estheticien.create')->with('error', 'Please create your estheticien profile.');
     }
-
-    // Pass the estheticien data to the welcome view
     return view('welcome', compact('estheticien'));
 }
 

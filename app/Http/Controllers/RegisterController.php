@@ -65,7 +65,7 @@ public function showAllUsers()
 public function banUser($id)
 {
     $user = User::findOrFail($id);
-    $user->banned = true; // Assuming you have an 'is_banned' column in your users table
+    $user->banned = true; 
     $user->save();
     return redirect()->back()->with('success', 'User has been banned successfully.');
 }

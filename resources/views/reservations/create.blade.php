@@ -1,9 +1,10 @@
 <x-home-layout>
-    <section class="h-100 bg-dark">
+    <section class="h-100 bg-white mt-5">
+    <h1 class="text-dark text-center">Make Your<span class="text-warning fw-bold"> Reservation</span></h1>
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col">
-                    <div class="card card-registration my-4">
+         <div class="card card-registration my-4">
                         <div class="row g-0">
                             <div class="col-xl-6 d-none d-xl-block">
                                 <img src="/storage/{{$services->image}}" alt="Sample photo" class="img-fluid" style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />

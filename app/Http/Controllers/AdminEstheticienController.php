@@ -94,7 +94,6 @@ class AdminEstheticienController extends Controller
 
         $estheticien = Estheticien::findOrFail($id);
 
-        // Handle image upload
         $imagePath = $estheticien->image;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public','estheticiens');

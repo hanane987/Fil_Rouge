@@ -28,14 +28,14 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
     
-        // Get credentials from request
+       
         $credentials = $request->only('email', 'password');
     
-        // Attempt authentication
+      
         if (auth()->attempt($credentials)) {
             $user = auth()->user();
     
-            // Redirect based on the user's role
+            
             switch ($user->role) {
                 case 'admin':
                     return redirect()->intended('admin.index');
@@ -48,7 +48,7 @@ class LoginController extends Controller
             }
         }
     
-        // If authentication fails, redirect back with error message
+       
         return back()->withErrors([
             'email' => 'These credentials do not match our records.',
         ]);

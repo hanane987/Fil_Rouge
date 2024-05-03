@@ -15,14 +15,13 @@
 </head>
 <body>
     <div class='dashboard'>
-        <div class="dashboard-nav">
+        <div class="dashboard-nav"  id="sidebare">
             <header>
-                <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-                <a href="#" class="brand-logo"><i class="fas fa-anchor"></i> <span>BRAND</span></a>
+                <a href="#" class="brand-logo"><span>Zeine</span></a>
             </header>
             <nav class="dashboard-nav-list">
                 <a href="{{route('/')}}" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
-                <a href="#" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                
                 <!-- Admin specific links -->
                 @if(Auth::user()->role == 'admin')
                     <a href="{{ route('admin.index') }}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> All users ban</a>
@@ -30,7 +29,7 @@
                         <a href="{{ route('services.index') }}" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-photo-video"></i> Manage Services</a>
                     </div>
                     <a href="{{ route('promotions.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Promotions</a>
-                    <a href="{{ route('admin.estheticiens.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Estheticiens</a>
+                    <a  hidden href="{{ route('admin.estheticiens.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Estheticiens</a>
                 @endif
                 <!-- Estheticien specific links -->
                 @if(Auth::user()->role == 'estheticien')
@@ -50,7 +49,7 @@
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'>
-                <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+                <button id="menu_tog" class="menu-toggle"><i class="fas fa-bars"></i></button>
             </header>
             <div class='dashboard-content'>
                 <div class='container'>
@@ -403,21 +402,12 @@ h1, .h1 {
 }
 
 .menu-toggle {
+    display:none;
     position: relative;
     width: 42px;
     height: 42px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+
+    
     color: #443ea2;
 }
 
@@ -437,13 +427,11 @@ h1, .h1 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+    
     padding: 8px 27px;
     position: fixed;
     top: 0;
+    justify-content:end;
     right: 0;
     left: 0;
     z-index: 1000;
@@ -482,6 +470,10 @@ h1, .h1 {
         left: 0;
         bottom: 0;
         z-index: 1070;
+        width:50%;
+    }
+    .menu-toggle{
+        display:block;
     }
 
     .dashboard-nav.mobile-show {
@@ -509,6 +501,21 @@ h1, .h1 {
 }
 
 </style>
+<script>
+let btn=document.getElementById('menu_tog');
+let side=document.getElementById('sidebare');
+
+btn.addEventListener("click",function(){
+   if(side.style.display=='none') {
+      side.style.display='block';
+   }else{
+side.style.display='none';
+   }
+   
+   
+
+})
+</script>
 
 </body>
 </html>

@@ -98,11 +98,13 @@
                        
                         <div class="col-lg-12 mt-3">
                             <div class="row">
+                            @auth
                                @if(Auth::user()->role=='user')
                                 <div class="col-lg-6">
                                     <a href="{{ route('reservations.create',$service) }}" class="btn btn-success w-100">Reserve Now</a>
                                 </div>
                                 @endif
+                                @endauth
                             </div>
                         </div>
                     </div>

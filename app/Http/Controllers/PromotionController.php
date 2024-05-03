@@ -28,14 +28,13 @@ class PromotionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         // dd($request);
         $request->validate([
             'name' => 'required|string|max:255',
-            'discount' => 'required|numeric', // Ensure discount is numeric
+            'discount' => 'required|numeric', 
             'validityPeriodStart' => 'required|date',
             'validityPeriodEnd' => 'required|date|after_or_equal:validityPeriodStart',
             'service_id'=> 'required',
@@ -45,11 +44,11 @@ class PromotionController extends Controller
         // Create new promotion
         $promotion = new Promotion();
         $promotion->name = $request->name;
-        $promotion->discount = $request->discount; // Ensure discount is properly formatted
+        $promotion->discount = $request->discount; 
         $promotion->validityPeriodStart = $request->validityPeriodStart;
         $promotion->validityPeriodEnd = $request->validityPeriodEnd;
         $promotion->service_id = $request->service_id;
-        // Save promotion
+       
         $promotion->save();
     
         return redirect()->route('promotions.index')->with('success', 'Promotion added successfully.');
@@ -65,7 +64,6 @@ class PromotionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
@@ -74,7 +72,6 @@ class PromotionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
@@ -83,7 +80,7 @@ class PromotionController extends Controller
         $promotion->discount = $request->discount;
         $promotion->validityPeriodStart = $request->validityPeriodStart;
         $promotion->validityPeriodEnd = $request->validityPeriodEnd;
-        // Update other promotion attributes
+       
 
         $promotion->save();
 
@@ -106,7 +103,7 @@ class PromotionController extends Controller
     public function statistics()
     {
         $userCount = User::count();
-        // $estheticianCount = Esthetician::count();
+       
         $promotionCount = Promotion::count();
 
         return view('admin.promotions.statistics', compact('userCount', 'promotionCount'));
