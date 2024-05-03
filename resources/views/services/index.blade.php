@@ -168,6 +168,11 @@
         margin: 0 0 10px;
     }
     .panel .panel-heading .btn_group{ text-align: center; }
+
+    .id-btn{
+        display:flex;
+        display:inline;
+    }
 }
 
 
@@ -206,11 +211,11 @@
                                 <td>{{ $service->duration }}</td>
                                 <td>{{ $service->promotion ? $service->promotion->name : 'No Promotion' }}</td>
                                 <td>
-                                    <a href="{{ route('services.edit', $service->id) }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ route('services.edit', $service->id) }}" class="btn btn-warning" id="id-btn" style="display:inline;" >Edit</a>
                                     <form action="{{ route('services.destroy', $service->id) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this service?')">Delete</button>
+                                        <button type="submit" id="id-btn" class="btn btn-danger" style="display:inline;" onclick="return confirm('Are you sure you want to delete this service?')">Deletjje</button>
                                     </form>
                                 </td>
                             </tr>

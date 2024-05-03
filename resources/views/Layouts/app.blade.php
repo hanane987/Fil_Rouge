@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Dashboard</title>
+    <title>Zeine</title>
     <!-- Link to CSS file -->
     <link rel="stylesheet" href="{{ asset("/css/stylesdash.css") }}">
     <!-- Link to JS file -->
@@ -23,6 +23,7 @@
                 <a href="{{route('/')}}" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
                 
                 <!-- Admin specific links -->
+                @auth
                 @if(Auth::user()->role == 'admin')
                     <a href="{{ route('admin.index') }}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> All users ban</a>
                     <div class='dashboard-nav-dropdown'>
@@ -30,14 +31,16 @@
                     </div>
                     <a href="{{ route('promotions.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Promotions</a>
                     <a  hidden href="{{ route('admin.estheticiens.index') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Manage Estheticiens</a>
+                    @endauth
                 @endif
                 <!-- Estheticien specific links -->
+                @auth
                 @if(Auth::user()->role == 'estheticien')
                     <a href="{{ route('estheticien.create') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Create Profile</a>
                      <a href="{{ route('estheticien.services_and_promotions') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> See services</a>
   <a href="{{ route('reservations.confirm') }}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Confirmation </a>
 
-            
+            @endauth
                 @endif
                 <div class="nav-item-divider"></div>
                 <!-- Common links -->

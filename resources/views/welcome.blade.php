@@ -373,8 +373,8 @@ footer a,footer a:hover{
 				<div class="mt-5 mt-md-0">
 					<span class="text-muted">Our Story</span>
 					<h2 class="display-5 fw-bold">About Us</h2>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris .</p>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+					<p class="lead">At Zeine, we believe that beauty is not just about how you look, but also about how you feel. Our mission is to provide our clients with an exceptional salon experience that leaves them feeling confident, rejuvenated, and empowered.</p>
+					<p class="lead">Founded in 2024, Zein has been dedicated to delivering top-notch salon services in a relaxing and welcoming environment. Our journey began with a passion for beauty and a commitment to excellence.</p>
 				</div>
 			</div>
 			<div class="col-md-6 offset-md-1 order-1 order-md-2">
@@ -403,27 +403,26 @@ footer a,footer a:hover{
   <h1 class="text-dark text-center my-5">Frequently Asked Questions</h1>
   <div class="faq-item">
     <input type="checkbox" id="question1">
-    <label for="question1">What is HTML?</label>
+    <label for="question1">What are your salon's operating hours?</label>
     <div class="answer">
-      <p>HTML stands for HyperText Markup Language. It is the standard markup language for creating web pages and web applications.</p>
+      <p>Our salon is open from monday to friday. Please note that our hours may vary on holidays or special occasions, so we recommend calling ahead to schedule your appointment.</p>
     </div>
   </div>
   <div class="faq-item">
     <input type="checkbox" id="question2">
-    <label for="question2">What is CSS?</label>
+    <label for="question2">How do I book an appointment?</label>
     <div class="answer">
-      <p>CSS stands for Cascading Style Sheets. It is a style sheet language that describes how HTML elements are displayed on the screen.</p>
+      <p>Booking an appointment is easy! You can call us at or book online through our website. Our friendly staff will assist you in scheduling a convenient time for your salon visit.</p>
     </div>
   </div>
   <div class="faq-item">
     <input type="checkbox" id="question3">
-    <label for="question3">How do I link CSS to HTML?</label>
+    <label for="question3">What services do you offer?</label>
     <div class="answer">
-      <p>There are three ways to link CSS to HTML:</p>
+      <p></p>
       <ul>
-        <li>Inline style: You can use the style attribute inside an HTML element to apply CSS rules to that element.</li>
-        <li>Internal style: You can use the style tag inside the head section of an HTML document to define CSS rules for the whole document.</li>
-        <li>External style: You can use the link tag inside the head section of an HTML document to link to an external CSS file.</li>
+        <li>We offer a comprehensive range of salon services, including haircuts, styling, color treatments, skincare, waxing, manicures, pedicures, and more. Our experienced team is here to help you look and feel your best from head to toe.</li>
+      
       </ul>
     </div>
   </div>
@@ -487,7 +486,7 @@ footer a,footer a:hover{
             <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
                 <span class="text-muted">Our Team</span>
                 <h2 class="display-5 fw-bold">Meet the Team</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis metus sem veniam eveniet aperiam suscipit.</p>
+                <p class="lead">Our talented team of professionals is dedicated to helping you look and feel your best. With years of experience and a passion for beauty, each member of our team brings their unique skills and expertise to provide you with exceptional salon services.</p>
             </div>
         </div>
 

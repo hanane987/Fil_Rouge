@@ -92,31 +92,31 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
+      <div class="carousel-item active" style="background-image: url('{{ asset('storage/pictures/71Vpuc-h2FL._SL1312_.jpg') }}')">
         <div class="carousel-caption">
           <h5>First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
+      <div class="carousel-item" style="background-image: url('{{ asset('storage/pictures/71Vpuc-h2FL._SL1312_.jpg') }}')">
         <div class="carousel-caption">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
+      <div class="carousel-item" style="background-image: url('{{ asset('storage/pictures/71Vpuc-h2FL._SL1312_.jpg') }}')">
         <div class="carousel-caption">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
+      <div class="carousel-item" style="background-image: url('{{ asset('storage/pictures/71Vpuc-h2FL._SL1312_.jpg') }}')">
         <div class="carousel-caption">
           <h5>Fourth slide label</h5>
           <p>Some representative placeholder content for the fourth slide.</p>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1920x1080/?beauty,salon')">
+      <div class="carousel-item" style="background-image: url('{{ asset('storage/pictures/71Vpuc-h2FL._SL1312_.jpg') }}')">
         <div class="carousel-caption">
           <h5>Fifth slide label</h5>
           <p>Some representative placeholder content for the fifth slide.</p>

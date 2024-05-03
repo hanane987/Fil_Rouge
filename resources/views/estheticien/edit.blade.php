@@ -43,7 +43,7 @@
                         <input type="text" class="form-control" id="price" name="price" value="{{ $estheticien->price ?? '' }}" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                    {{-- <button type="submit" class="btn btn-primary">Update Profile</button> --}}
                 </form>
             </div>
         </div>
